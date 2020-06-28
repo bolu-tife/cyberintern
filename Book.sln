@@ -1,0 +1,40 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book", "Book.csproj", "{643B0D47-7910-45A0-A64B-443DB79A5C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAPI", "..\..\..\BookAPI\BookAPI\BookAPI.csproj", "{FBE2D8C0-09E3-46FF-819E-DB8961535B41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWeb", "BookWeb\BookWeb.csproj", "{29CA1095-6888-4DFF-B273-5BA4C558CE03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Folder", "New Folder", "{64CF9CDA-9C2F-4256-BF98-B6F886C675A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWeb", "..\..\..\..\cyberInters-master\BookWeb\BookWeb.csproj", "{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{643B0D47-7910-45A0-A64B-443DB79A5C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{643B0D47-7910-45A0-A64B-443DB79A5C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{643B0D47-7910-45A0-A64B-443DB79A5C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{643B0D47-7910-45A0-A64B-443DB79A5C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE2D8C0-09E3-46FF-819E-DB8961535B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE2D8C0-09E3-46FF-819E-DB8961535B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE2D8C0-09E3-46FF-819E-DB8961535B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE2D8C0-09E3-46FF-819E-DB8961535B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF} = {64CF9CDA-9C2F-4256-BF98-B6F886C675A5}
+	EndGlobalSection
+EndGlobal

@@ -1,11 +1,11 @@
-﻿@model IEnumerable<BookWeb.Entities.Author>
+﻿@model IEnumerable<BookWeb.Entities.Publisher>
 @{
-    ViewData["Title"] = "Authors";
+    ViewData["Title"] = "Publisher";
 }
 <!-- ============================================================== -->
 <div class="row page-titles">
     <div class="col-md-5 align-self-center">
-        <h3 class="text-themecolor">Authors</h3>
+        <h3 class="text-themecolor">Publisher</h3>
     </div>
   <!--<div class="col-md-7 align-self-center">
        <a href="https://wrappixel.com/templates/adminpro/" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"> Upgrade to Pro</a>
@@ -20,33 +20,33 @@
                 <h4 class="card-title">List</h4>
                 <!-- <h6 class="card-subtitle">Add New Author</h6>-->
                 <div class="col-md-12 col-12 align-self-center">
-                    <a asp-controller="Author" asp-action="Create" class="btn float-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i>New Author</a>
+                    <a asp-controller="Book" asp-action="Create" class="btn float-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i>New Book</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table v-middle">
                         <thead>
                             <tr class="bg-light">
                                 <th class="border-top-0">ID</th>
-                                <th class="border-top-0">Title</th>
-                                <th class="border-top-0">Name</th>
-                                <th class="border-top-0">CreatedBy</th>
+                                <th class="border-top-0">Publisher Name</th>
+                                <th class="border-top-0">Country</th>
+                                
+                                <th class="border-top-0">Created By</th>
                                 <th class="border-top-0">Date Created</th>
-                                <th class="border-top-0"></th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var author in Model)
+                            @foreach (var publisher in Model)
                             {
-                                <tr>
-                                    <td>@author.Id</td>
-                                    <td>@author.Title </td>
-                                    <td>@author.Name  </td>
-                                    <td>@author.CreatedBy  </td>
-                                    <td>@author.DateCreated    </td>
-                                    <td><a asp-action="Edit" asp-route-id="@author.Id" alt="Edit">Edit<i class="fa fa-pencil m-r-10" aria-hidden="true"></i></a> </td>
-                                    <td><a  asp-action="Delete" asp-route-id="@author.Id">Delete<i class="fa fa-trash-o m-r-10" aria-hidden="true"></i></a> </td>
-                                </tr>
+                            <tr>
+                                <td>@publisher.Id</td>
+                                <td>@publisher.PublisherName </td>
+                                <td>@publisher.Country  </td>
+                                <td>@publisher.CreatedBy</td>
+                                <td>@publisher.DateCreated</td>
+                                <td><a asp-action="Edit" asp-route-id="@publisher.Id" alt="Edit">Edit<i class="fa fa-pencil m-r-10" aria-hidden="true"></i></a> </td>
+                                <td><a asp-action="Delete" asp-route-id="@publisher.Id"><i class="fa fa-trash-o m-r-10" aria-hidden="true"></i></a> </td>
+                            </tr>
                             }
                         </tbody>
                     </table>

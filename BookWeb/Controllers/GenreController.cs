@@ -37,9 +37,49 @@ namespace BookWeb.Controllers
         public async Task<IActionResult> Create(Genre genre)
         {
 
-            var createCategory = await _genre.AddAsync(genre);
+            var createGenre = await _genre.AddAsync(genre);
 
-            if (createCategory)
+            if (createGenre)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var editGenre = await _genre.GetById(id);
+
+            if (editGenre == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(editGenre);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Genre genre)
+        {
+            //var editAuthor = await _genre.GetById(id);
+            var editGenre = await _genre.Update(genre);
+
+            if (editGenre && ModelState.IsValid)
+            {
+                //    editAuthor.Name = author.Name;
+                //    context.SaveChanges();
+                return RedirectToAction("Index");
+                //return RedirectToAction("Details", new { id = editAuthor.Id });
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deleteGenre = await _genre.Delete(id);
+
+            if (deleteGenre)
             {
                 return RedirectToAction("Index");
             }

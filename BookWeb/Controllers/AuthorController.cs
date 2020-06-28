@@ -72,8 +72,21 @@ namespace BookWeb.Controllers
                 //return RedirectToAction("Details", new { id = editAuthor.Id });
             }
             return View();
-        } 
-        
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deleteAuthor = await _author.Delete(id);
+
+            if (deleteAuthor)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,4 +1,4 @@
-﻿@model BookWeb.Entities.Author
+﻿@model BookWeb.Entities.Book
 @{
     ViewData["Title"] = "Books";
 }
@@ -19,6 +19,8 @@
             <div class="card-body">
                 <h4 class="card-title">New Book</h4>
                 <!-- <h6 class="card-subtitle">Add New Author</h6>-->
+               
+               
                 <div class="table-responsive">
                     <form asp-action="Create" method="post" class="mt-4">
                         <div asp-validation-summary="All" class="text-danger"></div>
@@ -28,13 +30,39 @@
                             <span asp-validation-for="Title" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label asp-for="Name">Name</label>
-                            <input type="text" asp-for="Name" class="form-control" id="name" placeholder="Enter Author Name" required="">
-                            <span asp-validation-for="Name" class="text-danger"></span>
+                            <label asp-for="AuthorId">AuthorId</label>
+                            <input type="text" asp-for="AuthorId" class="form-control" placeholder="AuthorId" required="">
+                            <span asp-validation-for="AuthorId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="GerneID">GenreID</label>
+                            <input type="text" asp-for="GerneID" class="form-control" placeholder="GenreID" required="">
+                            <span asp-validation-for="GerneID" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ISBN">ISBN</label>
+                            <input type="text" asp-for="ISBN" class="form-control" placeholder="ISBN" required="">
+                            <span asp-validation-for="ISBN" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="YearPublish">YearPublish</label>
+                            <input type="text" asp-for="YearPublish" class="form-control" placeholder="YearPublish" required="">
+                            <span asp-validation-for="YearPublish" class="text-danger"></span>
+                        </div><div class="form-group">
+                            <label asp-for="Rating">Rating</label>
+                            <input type="text" asp-for="Rating" class="form-control" placeholder="Rating" required="">
+                            <span asp-validation-for="Rating" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Summary">Summary</label>
+                            <input type="text" asp-for="Summary" class="form-control" placeholder="Summary" required="">
+                            <span asp-validation-for="Summary" class="text-danger"></span>
                         </div>
                         
+                       
+
                         <button type="submit" class="btn btn-success mr-2">Submit</button>
-                        <button type="submit" class="btn btn-dark">Cancel</button>
+                        <button asp-action="Index" type="submit" class="btn btn-dark">Cancel</button>
                     </form>
                 </div>
             </div>

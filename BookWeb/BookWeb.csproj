@@ -28,6 +28,9 @@
     <Folder Include="Services\" />
     <Folder Include="Dto\" />
     <Folder Include="Views\Book\" />
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Genre\" />
+    <Folder Include="Views\Publisher\" />
   </ItemGroup>
   
   <ItemGroup>

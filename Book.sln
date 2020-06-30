@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookAPI", "..\..\..\BookAPI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWeb", "BookWeb\BookWeb.csproj", "{29CA1095-6888-4DFF-B273-5BA4C558CE03}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Folder", "New Folder", "{64CF9CDA-9C2F-4256-BF98-B6F886C675A5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookWeb", "..\..\..\..\cyberInters-master\BookWeb\BookWeb.csproj", "{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +25,7 @@ Global
 		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29CA1095-6888-4DFF-B273-5BA4C558CE03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BBAD515C-B7CF-4811-A522-A207FD9AB7CF} = {64CF9CDA-9C2F-4256-BF98-B6F886C675A5}
 	EndGlobalSection
 EndGlobal

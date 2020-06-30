@@ -74,7 +74,7 @@ namespace BookWeb.Controllers
             return View();
         }
 
-        [HttpGet]
+        
         public async Task<IActionResult> Delete(int id)
         {
             var deleteGenre = await _genre.Delete(id);

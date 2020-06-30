@@ -74,7 +74,8 @@ namespace BookWeb.Controllers
             return View();
         }
 
-        [HttpGet]
+        //[HttpPost]
+
         public async Task<IActionResult> Delete(int id)
         {
             var deleteAuthor = await _author.Delete(id);
@@ -85,6 +86,9 @@ namespace BookWeb.Controllers
             }
             return View();
         }
+
+
+        //}
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -74,7 +74,6 @@ namespace BookWeb.Controllers
             return View();
         }
 
-        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var deleteBook = await _book.Delete(id);
@@ -85,6 +84,7 @@ namespace BookWeb.Controllers
             }
             return View();
         }
+        
 
 
 

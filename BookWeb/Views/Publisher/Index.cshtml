@@ -44,8 +44,14 @@
                                 <td>@publisher.Country  </td>
                                 <td>@publisher.CreatedBy</td>
                                 <td>@publisher.DateCreated</td>
-                                <td><a asp-action="Edit" asp-route-id="@publisher.Id" alt="Edit">Edit<i class="fa fa-pencil m-r-10" aria-hidden="true"></i></a> </td>
-                                <td><a asp-action="Delete" asp-route-id="@publisher.Id"><i class="fa fa-trash-o m-r-10" aria-hidden="true"></i></a> </td>
+                                <td>
+
+                                    <a class="btn btn-success btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Edit" asp-action="Edit" asp-route-id="@publisher.Id" alt="Edit"><i class=" fa fa-edit" aria-hidden="true"></i></a>
+
+                                    <a class="btn btn-danger btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Delete" asp-action="Delete" asp-route-id="@publisher.Id" onclick="return confirm('Are you sure you want to Delete this user: @publisher.PublisherName')">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </td>
                             </tr>
                             }
                         </tbody>

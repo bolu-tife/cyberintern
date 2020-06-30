@@ -20,7 +20,7 @@
                 <h4 class="card-title">List</h4>
                 <!-- <h6 class="card-subtitle">Add New Author</h6>-->
                 <div class="col-md-12 col-12 align-self-center">
-                    <a asp-controller="Author" asp-action="Create" class="btn float-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i>New Author</a>
+                    <a asp-controller="Author" asp-action="Create" class="btn float-right hidden-sm-down btn-primary"><i class="mdi mdi-plus-circle"></i>New Author</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table v-middle">
@@ -44,12 +44,21 @@
                                     <td>@author.Name  </td>
                                     <td>@author.CreatedBy  </td>
                                     <td>@author.DateCreated    </td>
-                                    <td><a asp-action="Edit" asp-route-id="@author.Id" alt="Edit">Edit<i class="fa fa-pencil m-r-10" aria-hidden="true"></i></a> </td>
-                                    <td><a  asp-action="Delete" asp-route-id="@author.Id">Delete<i class="fa fa-trash-o m-r-10" aria-hidden="true"></i></a> </td>
+
+                                    <td>
+
+                                        <a class="btn btn-success btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Edit" asp-action="Edit" asp-route-id="@author.Id" alt="Edit"><i class=" fa fa-edit" aria-hidden="true"></i></a>
+                                    
+                                        <a class="btn btn-danger btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Delete" asp-action="Delete" asp-route-id="@author.Id" onclick="return confirm('Are you sure you want to Delete this user: @author.Name')">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
+
+                   
                 </div>
             </div>
         </div>

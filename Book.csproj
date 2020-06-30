@@ -13,4 +13,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="BookWeb\obj\Debug\netcoreapp2.2\BookWeb.Views.dll" />
+  </ItemGroup>
 </Project>

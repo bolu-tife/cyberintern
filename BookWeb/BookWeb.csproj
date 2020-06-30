@@ -31,6 +31,7 @@
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Genre\" />
     <Folder Include="Views\Publisher\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   
   <ItemGroup>
@@ -40,6 +41,9 @@
   <ItemGroup>
     <Compile Remove="Controllers\AuthorController %28another copy%29.cs" />
     <Compile Remove="Controllers\RoleController %28copy%29.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\site.css" />
   </ItemGroup>
 </Project>
 

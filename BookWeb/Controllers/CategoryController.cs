@@ -7,15 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 using BookWeb.Models;
 using BookWeb.Interface;
 using BookWeb.Entities;
+using Microsoft.AspNetCore.Identity;
+using BookWeb.Enums;
+
 namespace BookWeb.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         private ICategory _category;
-        public CategoryController(ICategory category)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public CategoryController(ICategory category, UserManager<ApplicationUser> userManager)
         {
             _category = category;
+            _userManager = userManager;
         }
+        
 
         public async Task<IActionResult> Index()
         {
@@ -36,13 +42,16 @@ namespace BookWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Category category)
         {
+            category.CreatedBy = _userManager.GetUserName(User);
 
             var createCategory = await _category.AddAsync(category);
 
             if (createCategory)
             {
+                Alert("Category created successfully!", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Category not created!", NotificationType.error);
             return View();
         }
 
@@ -50,11 +59,15 @@ namespace BookWeb.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var editCategory = await _category.GetById(id);
-
+            
+         
+        
             if (editCategory == null)
             {
+                
                 return RedirectToAction("Index");
             }
+            
             return View(editCategory);
         }
 
@@ -68,9 +81,11 @@ namespace BookWeb.Controllers
             {
                 //    editAuthor.Name = author.Name;
                 //    context.SaveChanges();
+                Alert("Category edited successfully!", NotificationType.success);
                 return RedirectToAction("Index");
                 //return RedirectToAction("Details", new { id = editAuthor.Id });
             }
+            Alert("Categoty not edited!", NotificationType.warning);
             return View();
         }
 
@@ -82,8 +97,10 @@ namespace BookWeb.Controllers
 
             if (deleteCategory)
             {
+                Alert("Category deleted successfully!", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Category not deleted!", NotificationType.error);
             return View();
         }
 

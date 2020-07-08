@@ -1,0 +1,45 @@
+﻿@model BookWeb.Models.SigninViewModel
+@{
+    ViewData["Title"] = "Signup";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+
+<form method="POST" id="signup-form" class="signup-form">
+    <h2 class="form-title">Sign Up</h2>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <input asp-for="UserName" type="text" class="form-input" placeholder="User Name" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input asp-for="Email" class="form-input"  placeholder="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="password" asp-for="Password" class="form-input" id="password"  placeholder="Password" />
+        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign Up" />
+       
+    </div>
+</form>
+<p class="loginhere">
+    Have already an account ? <a asp-controller="Account" asp-action="login" class="loginhere-link">Login here</a>
+</p>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

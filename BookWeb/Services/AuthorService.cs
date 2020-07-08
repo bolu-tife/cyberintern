@@ -18,7 +18,8 @@ namespace BookWeb.Services
 
         public void Add(Author author) //Add
         {
-            _context.Add(author);
+              _context.Add(author);
+           
             _context.SaveChanges();
         }
         public async Task<bool> AddAsync(Author author) //AddAsync
@@ -26,6 +27,7 @@ namespace BookWeb.Services
             try
             {
                 await _context.AddAsync(author);
+               
                 await _context.SaveChangesAsync();
             }
             catch (Exception)

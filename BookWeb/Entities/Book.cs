@@ -17,6 +17,19 @@ namespace BookWeb.Entities
         public int Rating { get; set; }
         public string  Summary { get; set; }
         public string CreatedBy { get; set; }
-        public DateTime DateCreated { get; set; }
+        
+        private DateTime? dateCreated = null;
+        public DateTime DateCreated
+        {
+            get
+            {
+                return dateCreated.HasValue
+                   ? dateCreated.Value
+                   : DateTime.Now;
+            }
+
+            set { dateCreated = value; }
+
+        }
     }
 }

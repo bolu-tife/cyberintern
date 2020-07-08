@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookWeb.Dto;
 using BookWeb.Entities;
+using BookWeb.Models;
 
 namespace BookWeb.Interface
 {
@@ -19,7 +20,10 @@ namespace BookWeb.Interface
         Task<bool> UpdateUser(ApplicationUser user);
 
         Task<bool> Delete(string id);
+        //Task LoginIn(LoginViewModel login);
+        Task<bool> LoginIn(LoginViewModel loginModel);
         //Task AddAsync(UserDto registerUser);
     }
+
 }
 

@@ -1,5 +1,13 @@
-﻿<!DOCTYPE html>
+﻿
+@using Microsoft.AspNetCore.Identity
+@using BookWeb.Entities
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
+
+
+
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -18,6 +26,9 @@
     <link rel="stylesheet" href="~/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="~/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>@ViewData["Title"] - BookWeb</title>
+    <link rel="stylesheet" href="~/css/loading.css">
+    <link href="~/sweetAlert/sweetalert.css" rel="stylesheet" />
+    <script src="~/sweetAlert/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +41,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index" >BookWeb</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">BookWeb</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -128,12 +139,14 @@
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                    <h5 class="mb-0 text-white nav-user-name">Welcome @UserManager.GetUserName(User) !</h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
+
+
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                <a class="dropdown-item" asp-controller="Account" asp-action="LogOut"><i class="fas fa-power-off mr-2"></i>Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -294,6 +307,8 @@
                                     </ul>
                                 </div>
                             </li>
+
+                            
                         </ul>
                     </div>
                 </nav>
@@ -309,44 +324,51 @@
             <div class="dashboard-ecommerce">
 
                 <div class="container">
+                    <br />
                     <partial name="_CookieConsentPartial" />
+                    <partial name="_NotificationPanel" />
                     <main role="main" class="pb-3">
                         @RenderBody()
+
                     </main>
+                    <partial name="_Loading" />
                 </div>
             </div>
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
+
         </div>
+
         <!-- ============================================================== -->
-        <!-- end wrapper  -->
+        <!-- end footer -->
         <!-- ============================================================== -->
     </div>
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
+    <footer>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="text-md-right footer-links d-none d-sm-block">
+                    <a href="javascript: void(0);">About</a>
+                    <a href="javascript: void(0);">Support</a>
+                    <a href="javascript: void(0);">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </footer>
     <script src="~/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <!-- bootstap bundle js -->
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
@@ -366,7 +388,16 @@
     <script src="~/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="~/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="~/assets/libs/js/dashboard-ecommerce.js"></script>
+
+    
+    <script type="text/javascript">$(document).on('submit', 'form', function () {
+            displayBusyIndicator();
+        });
+        function displayBusyIndicator() {
+            $('.loading').show();
+        }</script>
     @RenderSection("Scripts", required: false)
+
 </body>
 
 </html>

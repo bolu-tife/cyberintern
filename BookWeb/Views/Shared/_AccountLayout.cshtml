@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> @ViewData["Title"] </title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/css/login/style.css">
+    <link rel="stylesheet" href="~/css/loading.css">
+    <link href="~/sweetAlert/sweetalert.css" rel="stylesheet" />
+    <script src="~/sweetAlert/sweetalert.min.js"></script>
+
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <h1><a style="text-decoration:none; color:black; " class="navbar-brand" asp-controller="Home" asp-action="Index">BookWeb</a></h1>
+                <partial name="_CookieConsentPartial" />
+                <partial name="_NotificationPanel" />
+
+                @RenderBody()
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script type="text/javascript">$(document).on('submit', 'form', function () {
+            displayBusyIndicator();
+        });
+        function displayBusyIndicator() {
+            $('.loading').show();
+        }</script>
+    @RenderSection("Scripts", required: false)
+   
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

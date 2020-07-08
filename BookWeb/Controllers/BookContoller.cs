@@ -7,14 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using BookWeb.Models;
 using BookWeb.Interface;
 using BookWeb.Entities;
+using Microsoft.AspNetCore.Identity;
+using BookWeb.Enums;
+
 namespace BookWeb.Controllers
 {
-    public class BookController : Controller
+    public class BookController : BaseController
     {
         private IBook _book;
-        public BookController(IBook book)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public BookController(IBook book, UserManager<ApplicationUser> userManager)
         {
             _book = book;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -36,13 +41,16 @@ namespace BookWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Book book)
         {
+            book.CreatedBy = _userManager.GetUserName(User);
 
             var createBook = await _book.AddAsync(book);
-
+           
             if (createBook)
             {
+                Alert("Book created successfully.", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Book not created!", NotificationType.error);
             return View();
         }
 
@@ -50,11 +58,12 @@ namespace BookWeb.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var editBook = await _book.GetById(id);
-
             if (editBook == null)
             {
+                
                 return RedirectToAction("Index");
             }
+           
             return View(editBook);
         }
 
@@ -68,9 +77,11 @@ namespace BookWeb.Controllers
             {
                 //    editAuthor.Name = author.Name;
                 //    context.SaveChanges();
+                Alert("Book edited successfully.", NotificationType.success);
                 return RedirectToAction("Index");
                 //return RedirectToAction("Details", new { id = editAuthor.Id });
             }
+            Alert("Book not edited!", NotificationType.error);
             return View();
         }
 
@@ -80,8 +91,10 @@ namespace BookWeb.Controllers
 
             if (deleteBook)
             {
+                Alert("Book deleted successfully.", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Book not deleted!", NotificationType.error);
             return View();
         }
         

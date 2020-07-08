@@ -12,6 +12,18 @@ namespace BookWeb.Entities
         public string Title { get; set; }
         public string Name { get; set; }
         public string  CreatedBy { get; set; }
-        public DateTime DateCreated { get; set; }
+        private DateTime? dateCreated = null;
+        public DateTime DateCreated
+        {
+            get
+            {
+                return dateCreated.HasValue
+                   ? dateCreated.Value
+                   : DateTime.Now;
+            }
+
+            set { dateCreated = value; }
+
+        }
     }
 }

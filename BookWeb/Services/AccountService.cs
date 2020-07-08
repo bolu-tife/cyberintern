@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BookWeb.Dto;
 using BookWeb.Entities;
 using BookWeb.Interface;
+using BookWeb.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -47,29 +48,14 @@ namespace BookWeb.Services
                     var userResult = await _userManager.CreateAsync(user, password);
                     if (userResult.Succeeded)
                     {
-                        //if (!_roleManager.RoleExistsAsync("NormalUser").Result)
-                        //{
-                        //    ApplicationRole role = new ApplicationRole();
-                        //    role.Name = "NormalUser";
-                        //    role.Description = "Perform normal operations.";
-                        //    var roleResult = _roleManager.CreateAsync(role).Result;
-                        //    if (!roleResult.Succeeded)
-                        //    {
-                        //        return false;
-                        //    }
                         return true;
-                        //}
-
-                        //_userManager.AddToRoleAsync(user, "NormalUser").Wait();
-                        //return false;
-
                     }
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                
+
                 return false;
             }
         }
@@ -180,16 +166,41 @@ namespace BookWeb.Services
                 updateUser.LastName = user.LastName;
                 updateUser.Email = user.FirstName;
 
-                await _userManager.UpdateAsync(updateUser );
+                await _userManager.UpdateAsync(updateUser);
                 return true;
             }
 
             return false;
         }
 
-        public Task AddAsync(UserDto registerUser)
+        public async Task<bool> LoginIn(LoginViewModel loginDetails)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                // check if user exist
+                var checkUser = await _userManager.FindByEmailAsync(loginDetails.Email);
+
+                if (checkUser != null)
+                {
+                    //signin user
+                    var signInResult = await _signInManager.PasswordSignInAsync(checkUser, loginDetails.Password, false, false);
+                    // check if signin is successful
+                    if (signInResult.Succeeded)
+                    {
+                        return true;
+                       
+
+
+                    }
+
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

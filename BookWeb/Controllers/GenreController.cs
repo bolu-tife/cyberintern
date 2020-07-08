@@ -7,14 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 using BookWeb.Models;
 using BookWeb.Interface;
 using BookWeb.Entities;
+using Microsoft.AspNetCore.Identity;
+using BookWeb.Enums;
+
 namespace BookWeb.Controllers
 {
-    public class GenreController : Controller
+    public class GenreController : BaseController
     {
         private IGenre _genre;
-        public GenreController(IGenre genre)
+        private readonly UserManager<ApplicationUser> _userManager;
+        
+        public GenreController(IGenre genre, UserManager<ApplicationUser> userManager)
         {
             _genre = genre;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -36,13 +42,16 @@ namespace BookWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Genre genre)
         {
+            genre.CreatedBy = _userManager.GetUserName(User);
 
             var createGenre = await _genre.AddAsync(genre);
 
             if (createGenre)
             {
+                Alert("Genre Created successfully!", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Genre not created successfully!", NotificationType.error);
             return View();
         }
 
@@ -55,6 +64,7 @@ namespace BookWeb.Controllers
             {
                 return RedirectToAction("Index");
             }
+
             return View(editGenre);
         }
 
@@ -68,9 +78,11 @@ namespace BookWeb.Controllers
             {
                 //    editAuthor.Name = author.Name;
                 //    context.SaveChanges();
+                Alert("Genre edited successfully!", NotificationType.success);
                 return RedirectToAction("Index");
                 //return RedirectToAction("Details", new { id = editAuthor.Id });
             }
+            Alert("Genre not edited successfully!", NotificationType.error);
             return View();
         }
 
@@ -81,8 +93,10 @@ namespace BookWeb.Controllers
 
             if (deleteGenre)
             {
+                Alert("Genre deleted successfully!", NotificationType.success);
                 return RedirectToAction("Index");
             }
+            Alert("Genre not deleted successfully!", NotificationType.error);
             return View();
         }
 

@@ -30,6 +30,7 @@
                                 <th class="border-top-0">Name</th>
                                 <th class="border-top-0">AuthorID</th>
                                 <th class="border-top-0">GenreID</th>
+                                <th class="border-top-0">Publisher</th>
                                 <th class="border-top-0">ISBN</th>
                                 <th class="border-top-0">Year of Publish</th>
                                 <th class="border-top-0">Rating</th>
@@ -46,14 +47,15 @@
                                 <td>@book.Id</td>
                                 <td>@book.Title </td>
                                 <td>@book.AuthorId  </td>
-                                <td>@book.GerneID  </td>
+                                <td>@book.GenreId  </td>
+                                <td>@book.PublisherId  </td>
                                 <td>@book.ISBN    </td>
                                 <td>@book.YearPublish</td>
                                 <td>@book.Rating</td>
                                 <td>@book.Summary   </td>
                                 <td>@book.CreatedBy</td>
                                 <td>@book.DateCreated</td>
-                                
+
                                 <td>
 
                                     <a class="btn btn-success btn-sm rounded-0" data-toggle="tooltip" data-placement="top" title="Edit" asp-action="Edit" asp-route-id="@book.Id" alt="Edit"><i class=" fa fa-edit" aria-hidden="true"></i></a>

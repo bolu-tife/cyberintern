@@ -11,7 +11,9 @@ namespace BookWeb.Entities
         public int Id  { get; set; }
         public string  Title { get; set; }
         public int AuthorId { get; set; }
-        public int GerneID { get; set; }
+        public int GenreId { get; set; }
+        public int PublisherId { get; set; }
+        
         public string ISBN { get; set; }
         public int YearPublish { get; set; }
         public int Rating { get; set; }
@@ -31,5 +33,9 @@ namespace BookWeb.Entities
             set { dateCreated = value; }
 
         }
+        public Author Author { get; set; }
+        public Genre Genre { get; set; }
+        public Publisher Publisher { get; set; }
+        
     }
 }

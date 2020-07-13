@@ -9,16 +9,23 @@ using BookWeb.Interface;
 using BookWeb.Entities;
 using Microsoft.AspNetCore.Identity;
 using BookWeb.Enums;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookWeb.Controllers
 {
     public class BookController : BaseController
     {
         private IBook _book;
+        private IAuthor _author;
+        private IGenre _genre;
+        private IPublisher _publisher;
         private readonly UserManager<ApplicationUser> _userManager;
-        public BookController(IBook book, UserManager<ApplicationUser> userManager)
+        public BookController(IBook book, IAuthor author, IGenre genre, IPublisher publisher, UserManager<ApplicationUser> userManager)
         {
             _book = book;
+            _author = author;
+            _genre = genre;
+            _publisher = publisher;
             _userManager = userManager;
         }
 
@@ -31,11 +38,35 @@ namespace BookWeb.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var author = await _author.GetAll();
+            var genre = await _genre.GetAll();
+            var publisher = await _publisher.GetAll();
+            var authorList = author.Select(a => new SelectListItem()
+            {
+                Value = a.Id.ToString(),
+                Text = a.Title + " " + a.Name
+            });
 
+            var genreList = genre.Select(g => new SelectListItem()
+            {
+                Value = g.Id.ToString(),
+                Text = g.Name
+            });
+
+            var publisherList = publisher.Select(p => new SelectListItem()
+            {
+                Value = p.Id.ToString(),
+                Text = p.PublisherName
+            });
+
+            ViewBag.author = authorList;
+            ViewBag.genre = genreList;
+            ViewBag.publisher = publisherList;
             return View();
         }
+
 
 
         [HttpPost]
@@ -57,13 +88,40 @@ namespace BookWeb.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
+            
+           
+           
+            
+
             var editBook = await _book.GetById(id);
+
             if (editBook == null)
             {
-                
                 return RedirectToAction("Index");
             }
-           
+            var author = await _author.GetAll();
+            var authorList = author.Select(a => new SelectListItem()
+            {
+                Value = a.Id.ToString(),
+                Text = a.Title + " " + a.Name
+            });
+            var genre = await _genre.GetAll();
+            var genreList = genre.Select(g => new SelectListItem()
+            {
+                Value = g.Id.ToString(),
+                Text = g.Name
+            });
+            var publisher = await _publisher.GetAll();
+            var publisherList = publisher.Select(p => new SelectListItem()
+            {
+                Value = p.Id.ToString(),
+                Text = p.PublisherName
+            });
+
+            ViewBag.author = authorList;
+            ViewBag.genre = genreList;
+            ViewBag.publisher = publisherList;
+            
             return View(editBook);
         }
 

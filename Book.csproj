@@ -16,4 +16,52 @@
   <ItemGroup>
     <None Remove="BookWeb\obj\Debug\netcoreapp2.2\BookWeb.Views.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Account\login.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Author\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Account\signup.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Author\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Book\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Category\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Loading.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Publisher\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Category\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Book\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_NotificationPanel.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Author\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Category\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Publisher\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Publisher\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Author\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Publisher\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Category\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Author\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImports.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Book\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AccountLayout.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Layout.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Account\login.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Account\signup.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Book\Edit.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Create.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_NotificationPanel.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Book\Index.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_Loading.cshtml.g.cs" />
+    <Compile Remove="BookWeb\obj\Debug\netcoreapp2.2\Razor\Views\Genre\Index.cshtml.g.cs" />
+  </ItemGroup>
 </Project>
